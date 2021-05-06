@@ -37,19 +37,8 @@ namespace QL
         {
             if (logout == false)
             {
-                if (e.CloseReason == CloseReason.UserClosing)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Bạn có muốn thoát chương trình không?", "Thông báo", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        Environment.Exit(1);
-                    }
-                }
-                else
-                {
-                    // Cancel the close
-                    e.Cancel = true;
-                }
+                logout = true;
+                Application.Exit();
             }
         }
 
@@ -71,6 +60,14 @@ namespace QL
                 btn.Text = table.Name;
                 btn.FlatStyle = FlatStyle.Flat;
 
+                // set event click
+
+                btn.Click += Btn_Click;
+                btn.Tag = table;
+
+                // end
+
+
                 if (table.Status == "Trống")
                 {
                     btn.BackColor = Color.AliceBlue;
@@ -79,9 +76,58 @@ namespace QL
                 {
                     btn.BackColor = Color.PaleGreen;
                 }
+
                 flTable.Controls.Add(btn);
             }
         }
-   
+        // tạo event click cho btn
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            showBill(tableID);
+        }
+
+     
+
+        private void showBill(int id)
+        {
+            // clear listview
+
+            lvFood.Items.Clear();
+
+
+            //
+
+
+            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIdByTableId(id));
+
+            // tao list view item cho moi bill info.
+
+            foreach (BillInfo item in listBillInfo)
+            {
+                ListViewItem listViewItem = new ListViewItem(item.IdFood.ToString()); // first column item
+                listViewItem.SubItems.Add(item.Count.ToString()); // sub item of first column
+
+                // add to list view
+                lvFood.Items.Add(listViewItem);
+
+            }
+
+        }
+
+
+        private void btnFindClientByPhone_Click(object sender, EventArgs e)
+        {
+            Client client = ClientDAO.Instance.GetClientByPhone(txtClientPhone.Text.Trim());
+            txtClientPhone.Text = client.Phone;
+            txtClientAddress.Text = client.Address.Trim();
+            txtClientComment.Text = client.Comment;
+
+        }
+
+        private void btnAddNewClient_Click(object sender, EventArgs e)
+        {
+            ClientDAO.Instance.AddNewClient(txtClientPhone.Text.Trim(), txtClientAddress.Text, txtClientComment.Text);
+        }
     }
 }

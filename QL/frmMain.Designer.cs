@@ -38,28 +38,39 @@
             this.đăngXuấtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5555 = new System.Windows.Forms.Panel();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.cbFood = new System.Windows.Forms.ComboBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.lvFood = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flTable = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCheckout = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhMụcĐồĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtClientPhone = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtClientAddress = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnAddNewClient = new System.Windows.Forms.Button();
+            this.txtClientComment = new System.Windows.Forms.TextBox();
+            this.btnFindClientByPhone = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -70,9 +81,12 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel5555.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -83,7 +97,7 @@
             this.lbDateTime});
             this.statusStrip1.Location = new System.Drawing.Point(0, 560);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1019, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1382, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -106,7 +120,7 @@
             this.tàiKhoảnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1382, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -135,14 +149,14 @@
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Thông tin";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem1
             // 
             this.đăngXuấtToolStripMenuItem1.Name = "đăngXuấtToolStripMenuItem1";
-            this.đăngXuấtToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.đăngXuấtToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
             this.đăngXuấtToolStripMenuItem1.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem1.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem1_Click);
             // 
@@ -160,8 +174,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1019, 536);
-            this.splitContainer1.SplitterDistance = 327;
+            this.splitContainer1.Size = new System.Drawing.Size(1382, 536);
+            this.splitContainer1.SplitterDistance = 358;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -174,33 +188,35 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.lvFood);
-            this.splitContainer2.Panel1.Controls.Add(this.panel1);
+            this.splitContainer2.Panel1.Controls.Add(this.panel5555);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer2.Panel2.Controls.Add(this.txtTotalPrice);
             this.splitContainer2.Panel2.Controls.Add(this.label3);
-            this.splitContainer2.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer2.Panel2.Controls.Add(this.txtDiscount);
             this.splitContainer2.Panel2.Controls.Add(this.label2);
             this.splitContainer2.Panel2.Controls.Add(this.btnCheckout);
-            this.splitContainer2.Size = new System.Drawing.Size(688, 536);
+            this.splitContainer2.Size = new System.Drawing.Size(1020, 536);
             this.splitContainer2.SplitterDistance = 463;
             this.splitContainer2.TabIndex = 0;
             // 
-            // panel1
+            // panel5555
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Controls.Add(this.cbFood);
-            this.panel1.Controls.Add(this.cbCategory);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(688, 127);
-            this.panel1.TabIndex = 0;
+            this.panel5555.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5555.Controls.Add(this.panel5);
+            this.panel5555.Controls.Add(this.btnAddNewClient);
+            this.panel5555.Controls.Add(this.panel4);
+            this.panel5555.Controls.Add(this.panel3);
+            this.panel5555.Controls.Add(this.btnAdd);
+            this.panel5555.Controls.Add(this.numericUpDown1);
+            this.panel5555.Controls.Add(this.cbFood);
+            this.panel5555.Controls.Add(this.cbCategory);
+            this.panel5555.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5555.Location = new System.Drawing.Point(0, 0);
+            this.panel5555.Name = "panel5555";
+            this.panel5555.Size = new System.Drawing.Size(1020, 166);
+            this.panel5555.TabIndex = 0;
             // 
             // cbCategory
             // 
@@ -241,26 +257,23 @@
             0,
             0});
             // 
-            // btnAdd
-            // 
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(400, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(149, 72);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
             // lvFood
             // 
+            this.lvFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
             this.lvFood.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvFood.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvFood.ForeColor = System.Drawing.Color.Blue;
+            this.lvFood.GridLines = true;
             this.lvFood.HideSelection = false;
-            this.lvFood.Location = new System.Drawing.Point(0, 127);
+            this.lvFood.Location = new System.Drawing.Point(0, 166);
             this.lvFood.Name = "lvFood";
-            this.lvFood.Size = new System.Drawing.Size(688, 336);
+            this.lvFood.Size = new System.Drawing.Size(1020, 297);
             this.lvFood.TabIndex = 10;
             this.lvFood.TabStop = false;
             this.lvFood.UseCompatibleStateImageBehavior = false;
+            this.lvFood.View = System.Windows.Forms.View.Details;
             // 
             // panel2
             // 
@@ -268,18 +281,19 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(327, 37);
+            this.panel2.Size = new System.Drawing.Size(358, 37);
             this.panel2.TabIndex = 0;
             // 
             // flTable
             // 
+            this.flTable.AutoScroll = true;
             this.flTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flTable.Location = new System.Drawing.Point(0, 37);
-            this.flTable.Margin = new System.Windows.Forms.Padding(20);
+            this.flTable.Margin = new System.Windows.Forms.Padding(10);
             this.flTable.Name = "flTable";
             this.flTable.Padding = new System.Windows.Forms.Padding(20);
-            this.flTable.Size = new System.Drawing.Size(327, 499);
+            this.flTable.Size = new System.Drawing.Size(358, 499);
             this.flTable.TabIndex = 1;
             // 
             // label1
@@ -291,16 +305,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh sách bàn";
             // 
-            // btnCheckout
-            // 
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Location = new System.Drawing.Point(8, 7);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(197, 59);
-            this.btnCheckout.TabIndex = 5;
-            this.btnCheckout.Text = "Thanh toán";
-            this.btnCheckout.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -311,13 +315,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Giảm giá (%):";
             // 
-            // textBox1
+            // txtDiscount
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(438, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 4;
+            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.Location = new System.Drawing.Point(438, 41);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(100, 25);
+            this.txtDiscount.TabIndex = 4;
             // 
             // label3
             // 
@@ -329,14 +333,14 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Tổng tiền:";
             // 
-            // textBox2
+            // txtTotalPrice
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.textBox2.Location = new System.Drawing.Point(438, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 26);
-            this.textBox2.TabIndex = 7;
+            this.txtTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.txtTotalPrice.Location = new System.Drawing.Point(438, 9);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Size = new System.Drawing.Size(295, 26);
+            this.txtTotalPrice.TabIndex = 7;
             // 
             // doanhThuToolStripMenuItem
             // 
@@ -375,30 +379,151 @@
             this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
             // 
-            // textBox3
+            // txtClientPhone
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 81);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(303, 33);
-            this.textBox3.TabIndex = 4;
+            this.txtClientPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClientPhone.Location = new System.Drawing.Point(121, 2);
+            this.txtClientPhone.Name = "txtClientPhone";
+            this.txtClientPhone.Size = new System.Drawing.Size(303, 33);
+            this.txtClientPhone.TabIndex = 4;
             // 
-            // button1
+            // panel3
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(312, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.txtClientPhone);
+            this.panel3.Controls.Add(this.btnFindClientByPhone);
+            this.panel3.Location = new System.Drawing.Point(7, 84);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(515, 35);
+            this.panel3.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Khách hàng:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.txtClientAddress);
+            this.panel4.Location = new System.Drawing.Point(7, 129);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(629, 35);
+            this.panel4.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Địa chỉ:";
+            // 
+            // txtClientAddress
+            // 
+            this.txtClientAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClientAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientAddress.Location = new System.Drawing.Point(121, 2);
+            this.txtClientAddress.Name = "txtClientAddress";
+            this.txtClientAddress.Size = new System.Drawing.Size(505, 29);
+            this.txtClientAddress.TabIndex = 4;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.txtClientComment);
+            this.panel5.Location = new System.Drawing.Point(534, 88);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(759, 35);
+            this.panel5.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Chú thích:";
+            // 
+            // btnAddNewClient
+            // 
+            this.btnAddNewClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewClient.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewClient.Location = new System.Drawing.Point(642, 128);
+            this.btnAddNewClient.Name = "btnAddNewClient";
+            this.btnAddNewClient.Size = new System.Drawing.Size(118, 33);
+            this.btnAddNewClient.TabIndex = 5;
+            this.btnAddNewClient.Text = "Thêm Mới";
+            this.btnAddNewClient.UseVisualStyleBackColor = true;
+            this.btnAddNewClient.Click += new System.EventHandler(this.btnAddNewClient_Click);
+            // 
+            // txtClientComment
+            // 
+            this.txtClientComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClientComment.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClientComment.Location = new System.Drawing.Point(108, 1);
+            this.txtClientComment.Name = "txtClientComment";
+            this.txtClientComment.Size = new System.Drawing.Size(475, 29);
+            this.txtClientComment.TabIndex = 4;
+            // 
+            // btnFindClientByPhone
+            // 
+            this.btnFindClientByPhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFindClientByPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindClientByPhone.Image = global::QL.Properties.Resources.Find_person_16;
+            this.btnFindClientByPhone.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFindClientByPhone.Location = new System.Drawing.Point(436, 2);
+            this.btnFindClientByPhone.Name = "btnFindClientByPhone";
+            this.btnFindClientByPhone.Size = new System.Drawing.Size(71, 33);
+            this.btnFindClientByPhone.TabIndex = 5;
+            this.btnFindClientByPhone.Text = "   Tìm";
+            this.btnFindClientByPhone.UseVisualStyleBackColor = true;
+            this.btnFindClientByPhone.Click += new System.EventHandler(this.btnFindClientByPhone_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = global::QL.Properties.Resources.Add_icon_32;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(400, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(114, 73);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "     Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnCheckout
+            // 
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Image = global::QL.Properties.Resources.Dollar_icon_32;
+            this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckout.Location = new System.Drawing.Point(8, 7);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(197, 59);
+            this.btnCheckout.TabIndex = 5;
+            this.btnCheckout.Text = "  Thanh toán";
+            this.btnCheckout.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "idFood";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Count";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1019, 582);
+            this.ClientSize = new System.Drawing.Size(1382, 582);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -424,11 +549,16 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel5555.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,7 +575,7 @@
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5555;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox cbFood;
@@ -455,9 +585,9 @@
         private System.Windows.Forms.ListView lvFood;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCheckout;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhMụcĐồĂnToolStripMenuItem;
@@ -465,7 +595,18 @@
         private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kháchHàngToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnFindClientByPhone;
+        private System.Windows.Forms.TextBox txtClientPhone;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtClientComment;
+        private System.Windows.Forms.Button btnAddNewClient;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtClientAddress;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

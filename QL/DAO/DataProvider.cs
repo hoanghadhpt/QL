@@ -26,7 +26,11 @@ namespace QL.DAO
         private string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=qlquan;Integrated Security=True";
 
         
-
+        /// <summary>
+        /// Trả về dạng DataTable các giá trị trong query
+        /// </summary>
+        /// <param name="query">string : câu truy vấn</param>
+        /// <returns></returns>
         public DataTable ExecuteQuery(string query)
         {
             DataTable data = new DataTable();
@@ -80,7 +84,7 @@ namespace QL.DAO
 
 
         /// <summary>
-        /// Trả về các dòng thành công
+        /// không trả về giá trị, nhưng thực sự đang thực hiện một số hình thức công việc như chèn xóa hoặc sửa đổi một cái gì đó.
         /// </summary>
         /// <param name="query">string : query</param>
         /// <param name="parameter">object : parameter</param>

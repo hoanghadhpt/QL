@@ -45,13 +45,21 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.lvFood = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flTable = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhMụcĐồĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -73,9 +81,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lbDateTime});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 528);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 560);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1159, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1019, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -98,15 +106,22 @@
             this.tàiKhoảnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1159, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // adminToolStripMenuItem
             // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doanhThuToolStripMenuItem,
+            this.danhMụcĐồĂnToolStripMenuItem,
+            this.mónĂnToolStripMenuItem,
+            this.tableToolStripMenuItem,
+            this.accountToolStripMenuItem,
+            this.kháchHàngToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.adminToolStripMenuItem.Text = "Quản lý";
             // 
             // tàiKhoảnToolStripMenuItem
             // 
@@ -114,20 +129,22 @@
             this.đăngXuấtToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem1});
             this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.tàiKhoảnToolStripMenuItem.Text = "Tài Khoản";
+            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
+            this.tàiKhoảnToolStripMenuItem.Text = "Tài khoản của tôi";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Thông tin";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem1
             // 
             this.đăngXuấtToolStripMenuItem1.Name = "đăngXuấtToolStripMenuItem1";
             this.đăngXuấtToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.đăngXuấtToolStripMenuItem1.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem1.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem1_Click);
             // 
             // splitContainer1
             // 
@@ -137,14 +154,14 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Panel1.Controls.Add(this.flTable);
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1159, 504);
-            this.splitContainer1.SplitterDistance = 557;
+            this.splitContainer1.Size = new System.Drawing.Size(1019, 536);
+            this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -166,13 +183,15 @@
             this.splitContainer2.Panel2.Controls.Add(this.textBox1);
             this.splitContainer2.Panel2.Controls.Add(this.label2);
             this.splitContainer2.Panel2.Controls.Add(this.btnCheckout);
-            this.splitContainer2.Size = new System.Drawing.Size(598, 504);
-            this.splitContainer2.SplitterDistance = 406;
+            this.splitContainer2.Size = new System.Drawing.Size(688, 536);
+            this.splitContainer2.SplitterDistance = 463;
             this.splitContainer2.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.cbFood);
@@ -180,7 +199,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(598, 81);
+            this.panel1.Size = new System.Drawing.Size(688, 127);
             this.panel1.TabIndex = 0;
             // 
             // cbCategory
@@ -213,8 +232,9 @@
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(43, 33);
+            this.numericUpDown1.Size = new System.Drawing.Size(71, 33);
             this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
             0,
@@ -224,7 +244,7 @@
             // btnAdd
             // 
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(361, 2);
+            this.btnAdd.Location = new System.Drawing.Point(400, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(149, 72);
             this.btnAdd.TabIndex = 3;
@@ -235,9 +255,9 @@
             // 
             this.lvFood.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvFood.HideSelection = false;
-            this.lvFood.Location = new System.Drawing.Point(0, 81);
+            this.lvFood.Location = new System.Drawing.Point(0, 127);
             this.lvFood.Name = "lvFood";
-            this.lvFood.Size = new System.Drawing.Size(598, 325);
+            this.lvFood.Size = new System.Drawing.Size(688, 336);
             this.lvFood.TabIndex = 10;
             this.lvFood.TabStop = false;
             this.lvFood.UseCompatibleStateImageBehavior = false;
@@ -248,18 +268,19 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(557, 37);
+            this.panel2.Size = new System.Drawing.Size(327, 37);
             this.panel2.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // flTable
             // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 37);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(557, 467);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flTable.Location = new System.Drawing.Point(0, 37);
+            this.flTable.Margin = new System.Windows.Forms.Padding(20);
+            this.flTable.Name = "flTable";
+            this.flTable.Padding = new System.Windows.Forms.Padding(20);
+            this.flTable.Size = new System.Drawing.Size(327, 499);
+            this.flTable.TabIndex = 1;
             // 
             // label1
             // 
@@ -273,7 +294,7 @@
             // btnCheckout
             // 
             this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Location = new System.Drawing.Point(4, 32);
+            this.btnCheckout.Location = new System.Drawing.Point(8, 7);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(197, 59);
             this.btnCheckout.TabIndex = 5;
@@ -284,7 +305,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Location = new System.Drawing.Point(346, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 17);
             this.label2.TabIndex = 1;
@@ -293,7 +314,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(101, 2);
+            this.textBox1.Location = new System.Drawing.Point(438, 41);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 25);
             this.textBox1.TabIndex = 4;
@@ -302,7 +323,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(241, 21);
+            this.label3.Location = new System.Drawing.Point(334, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 25);
             this.label3.TabIndex = 6;
@@ -312,25 +333,84 @@
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.textBox2.Location = new System.Drawing.Point(336, 18);
+            this.textBox2.Location = new System.Drawing.Point(438, 9);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(250, 26);
             this.textBox2.TabIndex = 7;
+            // 
+            // doanhThuToolStripMenuItem
+            // 
+            this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
+            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.doanhThuToolStripMenuItem.Text = "Doanh thu";
+            // 
+            // danhMụcĐồĂnToolStripMenuItem
+            // 
+            this.danhMụcĐồĂnToolStripMenuItem.Name = "danhMụcĐồĂnToolStripMenuItem";
+            this.danhMụcĐồĂnToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.danhMụcĐồĂnToolStripMenuItem.Text = "Danh mục đồ ăn";
+            // 
+            // mónĂnToolStripMenuItem
+            // 
+            this.mónĂnToolStripMenuItem.Name = "mónĂnToolStripMenuItem";
+            this.mónĂnToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.mónĂnToolStripMenuItem.Text = "Món ăn";
+            // 
+            // tableToolStripMenuItem
+            // 
+            this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.tableToolStripMenuItem.Text = "Số bàn";
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.accountToolStripMenuItem.Text = "Danh sách tài khoản";
+            this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
+            // 
+            // kháchHàngToolStripMenuItem
+            // 
+            this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
+            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(3, 81);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(303, 33);
+            this.textBox3.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(312, 81);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 33);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Tìm";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1159, 550);
+            this.ClientSize = new System.Drawing.Size(1019, 582);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmMain";
-            this.Text = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "QUẢN LÝ -- Dev. Hoàng Hà";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -345,6 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -369,7 +450,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox cbFood;
         private System.Windows.Forms.ComboBox cbCategory;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flTable;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListView lvFood;
         private System.Windows.Forms.Label label1;
@@ -378,5 +459,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem danhMụcĐồĂnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mónĂnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kháchHàngToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

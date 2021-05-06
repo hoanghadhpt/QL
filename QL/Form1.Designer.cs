@@ -94,8 +94,11 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(467, 187);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
@@ -106,6 +109,7 @@
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dang nhap";
             this.ResumeLayout(false);
             this.PerformLayout();

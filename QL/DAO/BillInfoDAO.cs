@@ -33,5 +33,12 @@ namespace QL.DAO
             return listBillInfo;
         }
 
+        public void InsertBillInfo(int idBill, int idFood, int count, int clientID, int billID)
+        {
+            DataProvider.Instance.ExecuteNonQuery("usp_updateClientToBill @clientID , @billID",new object[] { clientID, billID});
+            DataProvider.Instance.ExecuteNonQuery("usp_InsertBillInfo @idBill , @idFood , @count ", new object[] { idBill, idFood, count });
+
+        }
+
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Menu = QL.DTO.Menu;
 
 namespace QL
 {
@@ -19,6 +20,7 @@ namespace QL
             InitializeComponent();
 
             loadTables(); // load tables
+            loadCategory(); // load category
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,6 +86,7 @@ namespace QL
         private void Btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            lvFood.Tag = (sender as Button).Tag;
             showBill(tableID);
         }
 
@@ -95,24 +98,48 @@ namespace QL
 
             lvFood.Items.Clear();
 
+            // load client
+            Client client = MenuDAO.Instance.GetClientInMenuByTableID(id);
+            txtClientPhone.Text = client.Phone;
+            txtClientAddress.Text = client.Address;
+            txtClientComment.Text = client.Comment;
 
-            //
-
-
-            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIdByTableId(id));
-
-            // tao list view item cho moi bill info.
-
-            foreach (BillInfo item in listBillInfo)
+            //Load menu
+            List<Menu> menu = MenuDAO.Instance.GetListMenuByTable(id,Convert.ToInt32(txtDiscount.Text));
+            float totalPrice = 0;
+            foreach (Menu item in menu)
             {
-                ListViewItem listViewItem = new ListViewItem(item.IdFood.ToString()); // first column item
-                listViewItem.SubItems.Add(item.Count.ToString()); // sub item of first column
-
-                // add to list view
-                lvFood.Items.Add(listViewItem);
-
+                ListViewItem viewItem = new ListViewItem(item.FoodName.ToString());
+                viewItem.SubItems.Add(item.Count.ToString("0,0"));
+                //viewItem.SubItems.Add(item.Discount.ToString());
+                viewItem.SubItems.Add(item.Price.ToString("0,0"));
+                viewItem.SubItems.Add(item.TotalPrice.ToString("0,0"));
+                totalPrice += item.TotalPrice;
+                lvFood.Items.Add(viewItem);
+                
             }
 
+            txtTotalPrice.Text = totalPrice.ToString("0,0");
+
+
+        }
+
+        private void loadCategory()
+        {
+            List<Category> categories = new List<Category>();
+            categories = CategoryDAO.Instance.GetCategories();
+            cbCategory.DataSource = categories;
+            cbCategory.DisplayMember = "name";
+
+        }
+
+        private void loadFoodByCategoryID(int id)
+        {
+            
+            List<Food> foods = new List<Food>();
+            foods = FoodDAO.Instance.GetFoodByCategoryID(id);
+            cbFood.DataSource = foods;
+            cbFood.DisplayMember = "name";
         }
 
 
@@ -128,6 +155,66 @@ namespace QL
         private void btnAddNewClient_Click(object sender, EventArgs e)
         {
             ClientDAO.Instance.AddNewClient(txtClientPhone.Text.Trim(), txtClientAddress.Text, txtClientComment.Text);
+        }
+
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cbFood.Text = "";
+            int id = 0;
+            ComboBox comboBox = sender as ComboBox;
+
+            if (comboBox.SelectedItem == null)
+                return;
+
+            Category selected = comboBox.SelectedItem as Category;
+            id = selected.ID;
+
+
+            loadFoodByCategoryID(id);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Table table = lvFood.Tag as Table; // lay table hien tai
+            int clientID = ClientDAO.Instance.GetClientIdByPhone(txtClientPhone.Text);
+            int idFood = (cbFood.SelectedItem as Food).ID;
+            int count = (int)numericUpDown1.Value;
+
+
+            int idBill = BillDAO.Instance.GetUncheckBillIdByTableId(table.ID);
+            if (idBill == -1)  // Bill chua ton tai
+            {
+                BillDAO.Instance.InsertBill(table.ID, clientID);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxBillID(), idFood, count,clientID,idBill);
+            }
+            else // Bill da ton tai thì insert vào
+            {
+
+                BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count, clientID, idBill);
+            }
+
+
+            showBill(table.ID);
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            Table table = lvFood.Tag as Table;
+            int idBill = BillDAO.Instance.GetUncheckBillIdByTableId(table.ID);
+
+            if (idBill == -1)
+            { }
+            else
+            {
+                if (MessageBox.Show("Bạn có muốn thanh toán cho " + table.Name + " không ", "Thống báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                }
+            }
+
+            showBill(table.ID);
+
         }
     }
 }

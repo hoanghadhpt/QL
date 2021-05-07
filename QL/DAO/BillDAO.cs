@@ -37,5 +37,30 @@ namespace QL.DAO
             return -1;
         }
 
+        public void InsertBill(int idTable, int idClient)
+        {
+            DataProvider.Instance.ExecuteNonQuery("usp_InsertBill @idTable , @idClient ", new object[] { idTable, idClient});
+
+        }
+
+        public int GetMaxBillID()
+        {
+            try
+            { 
+            return (int)DataProvider.Instance.ExecuteScalar("Select Max(id) from bill");
+            }
+            catch
+            {
+                return 1;
+            }
+        }
+
+        public void CheckOut(int id)
+        {
+            string query = "Update bill set status = 1 where id = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+
+        }
+
     }
 }

@@ -69,5 +69,18 @@ namespace QL.DAO
 
         }
 
+        public int GetClientIdByPhone(string phone)
+        {
+            object id = DataProvider.Instance.ExecuteScalar("usp_GetClientIdByPhone @phone", new object[] { phone });
+            if (id != null)
+            {
+                return Convert.ToInt32(id);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
     }
 }
